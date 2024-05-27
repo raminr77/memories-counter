@@ -1,9 +1,9 @@
 /* eslint-disable */
 import {
   LOCAL_STORAGE_KEYS
-} from '../../constants/local-storage-keys.ts';
+} from '../../constants/local-storage-keys';
 
-import { toggleDarkMode } from '../app/app-slice.ts';
+import { toggleDarkMode } from '../app/app-slice';
 
 // @ts-ignore
 const localStorageMiddleware = (store) => (next) => (action) => {

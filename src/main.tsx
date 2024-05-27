@@ -7,11 +7,11 @@ import {
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { ROUTES } from "./shared/constants/routes.ts";
-import { store, persistor } from './shared/redux/store.ts';
+import { ROUTES } from "./shared/constants/routes";
+import { store, persistor } from './shared/redux/store';
 
 // Pages
-import { Error404 } from "./404.tsx";
+import { Error404 } from "./404";
 import { Layout } from "./shared/layout";
 import { HomePage } from "./domains/home";
 

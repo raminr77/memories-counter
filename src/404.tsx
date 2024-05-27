@@ -1,4 +1,4 @@
-import { ROUTES } from "./shared/constants/routes.ts";
+import { ROUTES } from "./shared/constants/routes";
 
 export function Error404() {
   return (

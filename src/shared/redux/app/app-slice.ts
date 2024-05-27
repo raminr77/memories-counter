@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { REDUCERS } from "../../constants/reducers.ts";
-import { LOCAL_STORAGE_KEYS } from "../../constants/local-storage-keys.ts";
+import { REDUCERS } from "../../constants/reducers";
+import { LOCAL_STORAGE_KEYS } from "../../constants/local-storage-keys";
 
 const initialState: GApp = {
     darkMode: !!localStorage.getItem(LOCAL_STORAGE_KEYS.DARK_MODE),

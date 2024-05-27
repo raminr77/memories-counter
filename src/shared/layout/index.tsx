@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 
-import { toggleDarkMode } from "../redux/app/app-slice.ts";
-import { appSelectors } from "../redux/app/app-selectors.ts";
-import { LOCAL_STORAGE_KEYS } from "../constants/local-storage-keys.ts";
+import { toggleDarkMode } from "../redux/app/app-slice";
+import { appSelectors } from "../redux/app/app-selectors";
+import { LOCAL_STORAGE_KEYS } from "../constants/local-storage-keys";
 
 export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   const dispatch = useDispatch();
@@ -22,8 +22,7 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   }, []);
 
   return (
-    <main className='min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
-
+    <main className='h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-slate-800 text-black dark:text-white'>
       {children}
 
       <Toaster

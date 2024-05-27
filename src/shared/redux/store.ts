@@ -3,11 +3,11 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storageSession from 'redux-persist/lib/storage/session';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import { REDUCERS } from '../constants/reducers.ts';
-import { ENV_DATA } from '../constants/environment.ts';
+import { REDUCERS } from '../constants/reducers';
+import { ENV_DATA } from '../constants/environment';
 import { localStorageMiddleware } from './middlewares/local-storage';
 
-import appReducer from './app/app-slice.ts';
+import appReducer from './app/app-slice';
 import userReducer from './user/user-slice';
 
 const persistConfig = {
