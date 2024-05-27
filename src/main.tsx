@@ -14,6 +14,7 @@ import { store, persistor } from './shared/redux/store';
 import { Error404 } from "./404";
 import { Layout } from "./shared/layout";
 import { HomePage } from "./domains/home";
+import { CounterPage } from './domains/counter';
 
 // Styles
 import './styles/main.scss';
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
     element: <HomePage />,
+    errorElement: <Error404 />
+  },
+  {
+    path: ROUTES.COUNTER,
+    element: <CounterPage />,
     errorElement: <Error404 />
   }
 ]);

@@ -15,8 +15,24 @@ body {
 .text-app-color {
   color: #fd4085;
 }
+.text-app-color-2 {
+  color: #fe6688;
+}
 .bg-app-color {
   background-color: #fd4085;
+}
+.bg-app-color-2 {
+  background-color: #fe6688;
+}
+.bg-app-gradient {
+  background: #fd4085 linear-gradient(90deg, #fd4085 0%, #fe6688 100%);
+}
+.bg-app-gradient-hover {
+  transition-duration: 0.4s;
+  background: #fd4085 linear-gradient(90deg, #fd4085 0%, #fe6688 100%);
+  &:hover {
+    background: #fd4085 linear-gradient(-90deg, #fd4085 0%, #fe6688 100%);
+  }
 }
 
 @tailwind base;

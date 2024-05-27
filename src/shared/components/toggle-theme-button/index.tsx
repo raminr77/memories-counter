@@ -13,7 +13,7 @@ export function ToggleThemeButton({ className }: GCommonComponentProperties) {
         <button
             type='button'
             onClick={toggleTheme}
-            className={classnames('p-2 rounded-full', className)}
+            className={classnames('px-2 pb-2 pt-3 rounded-br-2xl rounded-bl-2xl bg-slate-200 dark:bg-slate-800', className)}
         >
             <img
                 width={20}

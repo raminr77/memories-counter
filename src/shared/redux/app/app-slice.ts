@@ -3,6 +3,8 @@ import { REDUCERS } from "../../constants/reducers";
 import { LOCAL_STORAGE_KEYS } from "../../constants/local-storage-keys";
 
 const initialState: GApp = {
+    startTime: '01:55:00',
+    startDate: '2024-02-22',
     darkMode: !!localStorage.getItem(LOCAL_STORAGE_KEYS.DARK_MODE),
 };
 
