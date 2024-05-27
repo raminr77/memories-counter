@@ -21,7 +21,7 @@ export function HomePage(){
 
   const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (isCodeValid(code)) {
+    if (isCodeValid(code) && code === 'ramin') {
       // TODO: check code with BE
       notify.success({ message: 'Welcome! 😍' });
       dispatch(userLoginAction({}));
