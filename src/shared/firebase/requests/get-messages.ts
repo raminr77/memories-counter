@@ -1,10 +1,10 @@
-import { notify } from '../../utils/notify';
+import { notify } from 'shared/utils/notify';
 import { ref, get, child } from 'firebase/database';
-import { DB, DATABASE_MESSAGES_TABLE_NAME } from '../constants/database';
+import { DB, DATABASE_MESSAGES_TABLE_NAME } from 'shared/firebase/constants/database';
 
 type GetMessagesRequestProps = (messages: GMessage[]) => void;
 
-export const GetMessagesRequest = (userId: string | null, receiverId: string | null, callback: GetMessagesRequestProps = () => {}) => {
+export const GetMessagesRequest = (userId: GID, receiverId: GID, callback: GetMessagesRequestProps = () => {}) => {
     get(child(ref(DB), `${DATABASE_MESSAGES_TABLE_NAME}/`))
         .then((snapshot) => {
             if (snapshot.exists()) {

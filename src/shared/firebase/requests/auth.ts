@@ -1,6 +1,6 @@
-import { notify } from '../../utils/notify';
+import { notify } from 'shared/utils/notify';
 import { ref, set, get, child, push } from 'firebase/database';
-import { DB, DATABASE_USERS_TABLE_NAME } from '../constants/database';
+import { DB, DATABASE_USERS_TABLE_NAME } from 'shared/firebase/constants/database';
 
 type UserDataType = GUser;
 type LoginCallbackType = (user: GUser) => void;
@@ -28,7 +28,7 @@ export const LoginRequest = (code: string, callback: LoginCallbackType = () => {
 };
 
 export const RegisterRequest = (userData: UserDataType, callback: LoginCallbackType = () => {}) => {
-    const userId = push(child(ref(DB), DATABASE_USERS_TABLE_NAME)).key;
+    const userId: GID = push(child(ref(DB), DATABASE_USERS_TABLE_NAME)).key;
     set(ref(DB, `${DATABASE_USERS_TABLE_NAME}/${userId}`), userData)
         .then(() => {
             notify.success({ message: 'Your account created successful.' });

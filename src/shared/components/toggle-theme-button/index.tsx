@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { classnames } from '../../utils/classnames';
-import { toggleDarkMode } from '../../redux/app/app-slice';
-import { appSelectors } from '../../redux/app/app-selectors';
+import { classnames } from 'shared/utils/classnames';
+import { toggleDarkMode } from 'shared/redux/app/app-slice';
+import { appSelectors } from 'shared/redux/app/app-selectors';
 
 export function ToggleThemeButton({ className }: GCommonComponentProperties) {
     const dispatch = useDispatch();

@@ -5,15 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { CounterHeader } from "./counter-header";
 import { CounterChatItem } from "./counter-chat-item";
-import { ROUTES } from "../../shared/constants/routes";
-import { animator } from "../../shared/utils/animator";
-import { classnames } from "../../shared/utils/classnames";
-import { userLogoutAction } from "../../shared/redux/user/user-slice";
-import { userSelectors } from "../../shared/redux/user/user-selectors";
-import { PostMessageRequest } from "../../shared/firebase/requests/post-message";
-import { GetMessagesRequest } from "../../shared/firebase/requests/get-messages";
 
-import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
+import { ROUTES } from "shared/constants/routes";
+import { animator } from "shared/utils/animator";
+import { classnames } from "shared/utils/classnames";
+import { userLogoutAction } from "shared/redux/user/user-slice";
+import { userSelectors } from "shared/redux/user/user-selectors";
+import { PostMessageRequest } from "shared/firebase/requests/post-message";
+import { GetMessagesRequest } from "shared/firebase/requests/get-messages";
+
+import LOVE_ANIMATION from 'shared/assets/love-animation.json';
 
 export function CounterPage() {
     const dispatch = useDispatch();

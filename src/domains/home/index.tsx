@@ -1,15 +1,18 @@
 import Lottie from "lottie-react";
-import { useState, FormEvent } from "react";
 import { useDispatch } from "react-redux";
+import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../shared/utils/notify";
-import { animator } from "../../shared/utils/animator";
-import { ROUTES } from "../../shared/constants/routes";
-import { classnames } from "../../shared/utils/classnames";
-import { LoginRequest } from "../../shared/firebase/requests/auth";
-import { userLoginAction } from "../../shared/redux/user/user-slice";
 
-import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
+import { notify } from "shared/utils/notify";
+import { Input } from "shared/components/input";
+import { animator } from "shared/utils/animator";
+import { ROUTES } from "shared/constants/routes";
+import { Button } from "shared/components/button";
+import { classnames } from "shared/utils/classnames";
+import { LoginRequest } from "shared/firebase/requests/auth";
+import { userLoginAction } from "shared/redux/user/user-slice";
+
+import LOVE_ANIMATION from 'shared/assets/love-animation.json';
 
 export function HomePage(){
   const dispatch = useDispatch();
@@ -47,40 +50,32 @@ export function HomePage(){
           src="/images/logo.png"
           className={animator({ name: 'bounceIn' })}
         />
-        <h1 className={classnames(
-          "font-medium text-app-color text-3xl tas-font",
-          animator({ name: 'fadeIn' })
-        )}>Memories Counter</h1>
-        <p className={classnames(
-          "text-sm text-slate-600 dark:text-slate-300 tas-font",
-          animator({ name: 'fadeIn' })
-        )}>
+        <h1
+          className={classnames(
+            "font-medium text-app-color text-3xl tas-font",
+            animator({ name: 'fadeIn' })
+          )}
+        >
+          Memories Counter
+        </h1>
+        <p
+          className={classnames(
+            "text-sm text-slate-600 dark:text-slate-300 tas-font mb-3",
+            animator({ name: 'fadeIn' })
+          )}
+        >
           Your life is only as long as your good days.
         </p>
-        
-        <input
-          type="text"
+
+        <Input
           value={code}
           minLength={5}
           maxLength={10}
           placeholder="Enter Your Magic Code"
-          onChange={({ target }) => setCode(target.value)}
-          className="border-2 tas-font rounded-md text-sm mt-3 outline-none w-full leading-10 text-center bg-slate-100 duration-300 dark:bg-slate-600 border-slate-200 dark:border-slate-500 focus:border-slate-400 dark:focus:border-slate-300"
+          onChange={(value) => setCode(value)}
         />
-        <button
-          type="submit"
-          onClick={onSubmit}
-          disabled={!isCodeValid(code)}
-          className={classnames(
-            "text-white outline-none tas-font text-sm transition-all rounded-md leading-10 py-1 w-full",
-            {
-              'opacity-30 bg-slate-500 dark:bg-slate-500': !isCodeValid(code),
-              'bg-app-gradient-hover': isCodeValid(code)
-            }
-          )}
-        >
-          Submit
-        </button>
+
+        <Button label="Submit" onClick={onSubmit} disabled={!isCodeValid(code)} />
       </form>
 
       <Lottie className='absolute bottom-0 z-0' animationData={LOVE_ANIMATION} />

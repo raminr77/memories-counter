@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { REDUCERS } from "../../constants/reducers";
+import { REDUCERS } from "shared/constants/reducers";
 
 
 const initialState: GUser = {

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { notify } from '../../utils/notify';
-import { classnames } from '../../utils/classnames';
-import { userSelectors } from '../../redux/user/user-selectors';
-import { userLogoutAction } from '../../redux/user/user-slice';
+import { notify } from 'shared/utils/notify';
+import { classnames } from 'shared/utils/classnames';
+import { userLogoutAction } from 'shared/redux/user/user-slice';
+import { userSelectors } from 'shared/redux/user/user-selectors';
 
 export function ExitButton({ className }: GCommonComponentProperties) {
     const dispatch = useDispatch();

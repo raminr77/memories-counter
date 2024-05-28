@@ -3,12 +3,12 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storageSession from 'redux-persist/lib/storage/session';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import { REDUCERS } from '../constants/reducers';
-import { ENV_DATA } from '../constants/environment';
-import { localStorageMiddleware } from './middlewares/local-storage';
+import { REDUCERS } from 'shared/constants/reducers';
+import { ENV_DATA } from 'shared/constants/environment';
+import { localStorageMiddleware } from 'shared/redux/middlewares/local-storage';
 
-import appReducer from './app/app-slice';
-import userReducer from './user/user-slice';
+import appReducer from 'shared/redux/app/app-slice';
+import userReducer from 'shared/redux/user/user-slice';
 
 const persistConfig = {
   blacklist: [REDUCERS.USER],

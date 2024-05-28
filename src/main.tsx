@@ -5,17 +5,18 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { initFirebase } from "./shared/firebase";
+import { initFirebase } from "shared/firebase";
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { ROUTES } from "./shared/constants/routes";
-import { store, persistor } from './shared/redux/store';
+import { ROUTES } from "shared/constants/routes";
+import { store, persistor } from 'shared/redux/store';
 
 // Pages
 import { Error404 } from "./404";
-import { Layout } from "./shared/layout";
-import { HomePage } from "./domains/home";
-import { CounterPage } from './domains/counter';
+import { Layout } from "shared/layout";
+import { HomePage } from "domains/home";
+import { CounterPage } from 'domains/counter';
+import { RegisterPage } from 'domains/register';
 
 // Styles
 import './styles/main.scss';
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: ROUTES.COUNTER,
     element: <CounterPage />,
+    errorElement: <Error404 />
+  },
+  {
+    path: ROUTES.REGISTER,
+    element: <RegisterPage />,
     errorElement: <Error404 />
   }
 ]);

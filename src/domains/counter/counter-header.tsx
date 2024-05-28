@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { animator } from "../../shared/utils/animator";
-import { classnames } from "../../shared/utils/classnames";
-import { userSelectors } from "../../shared/redux/user/user-selectors";
-import { calculateTimeDifference } from "../../shared/utils/calculate-time-difference";
+
+import { animator } from "shared/utils/animator";
+import { classnames } from "shared/utils/classnames";
+import { userSelectors } from "shared/redux/user/user-selectors";
+import { calculateTimeDifference } from "shared/utils/calculate-time-difference";
 
 export function CounterHeader({ length = 0 }) {
     const [time, setTime] = useState<string>('Loading ...');

@@ -1,4 +1,5 @@
 export const ROUTES = {
   HOME: '/',
-  COUNTER: '/counter/'
+  COUNTER: '/counter/',
+  REGISTER: '/register/'
 };

@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 
-import { ExitButton } from "../components/exit-button";
-import { toggleDarkMode } from "../redux/app/app-slice";
-import { appSelectors } from "../redux/app/app-selectors";
-import { LOCAL_STORAGE_KEYS } from "../constants/local-storage-keys";
-import { ToggleThemeButton } from "../components/toggle-theme-button";
+import { ExitButton } from "shared/components/exit-button";
+import { toggleDarkMode } from "shared/redux/app/app-slice";
+import { appSelectors } from "shared/redux/app/app-selectors";
+import { LOCAL_STORAGE_KEYS } from "shared/constants/local-storage-keys";
+import { ToggleThemeButton } from "shared/components/toggle-theme-button";
 
 export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   const dispatch = useDispatch();

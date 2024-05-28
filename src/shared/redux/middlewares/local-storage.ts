@@ -1,9 +1,9 @@
 /* eslint-disable */
 import {
   LOCAL_STORAGE_KEYS
-} from '../../constants/local-storage-keys';
+} from 'shared/constants/local-storage-keys';
 
-import { toggleDarkMode } from '../app/app-slice';
+import { toggleDarkMode } from 'shared/redux/app/app-slice';
 
 // @ts-ignore
 const localStorageMiddleware = (store) => (next) => (action) => {

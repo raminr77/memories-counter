@@ -1,7 +1,7 @@
-import { notify } from '../utils/notify';
+import { notify } from 'shared/utils/notify';
 import { initializeApp } from 'firebase/app';
-import { FIREBASE_CONFIGS } from './constants/firebase';
 import { getAuth, signInAnonymously } from 'firebase/auth';
+import { FIREBASE_CONFIGS } from 'shared/firebase/constants/firebase';
 
 const FIREBASE_APP = initializeApp(FIREBASE_CONFIGS);
 

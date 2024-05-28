@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import { animator } from "../../shared/utils/animator";
-import { classnames } from "../../shared/utils/classnames";
-import { userSelectors } from "../../shared/redux/user/user-selectors";
+
+import { animator } from "shared/utils/animator";
+import { classnames } from "shared/utils/classnames";
+import { userSelectors } from "shared/redux/user/user-selectors";
 
 interface CounterChatItemProps extends GMessage {}
 
