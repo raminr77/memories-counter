@@ -48,7 +48,7 @@ export function CounterPage() {
                 savedMessage
             ]);
             setText('');
-        })
+        });
     };
 
     useEffect(() => {
