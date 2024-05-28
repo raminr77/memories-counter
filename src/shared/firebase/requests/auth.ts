@@ -32,7 +32,11 @@ export const RegisterRequest = (userData: UserDataType, callback: LoginCallbackT
     set(ref(DB, `${DATABASE_USERS_TABLE_NAME}/${userId}`), userData)
         .then(() => {
             notify.success({ message: 'Your account created successful.' });
-            LoginRequest(userData.code, callback);
+            callback({
+                ...userData,
+                id: userId,
+                isAuthenticated: true
+            });
         })
         .catch(() => notify.error({ message: 'Oops, You cannot create account now!' }));
 };

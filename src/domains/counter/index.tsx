@@ -10,8 +10,10 @@ import { animator } from "../../shared/utils/animator";
 import { classnames } from "../../shared/utils/classnames";
 import { userLogoutAction } from "../../shared/redux/user/user-slice";
 import { userSelectors } from "../../shared/redux/user/user-selectors";
+import { GetMessagesRequest } from "../../shared/firebase/requests/get-messages";
 
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
+import { PostMessageRequest } from "shared/firebase/requests/post-message";
 
 export function CounterPage() {
     const dispatch = useDispatch();
@@ -21,24 +23,34 @@ export function CounterPage() {
 
     const [items, setItems] = useState<GMessage[]>([]);
 
-    // TODO: Get Messages
-
     const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        // TODO: Send Message
+        
         const date = new Date();
-        const created = `${date.getFullYear()} / ${date.getMonth()} / ${date.getDay()}  -  ${date.getHours()}:${date.getMinutes()}`;
-        setItems([
-            ...items,
-            { text, userId: id, created }
-        ]);
-        setText('');
+        const created = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} | ${date.getHours()}:${date.getMinutes()}`;
+
+        const message: GMessage = {
+            text,
+            created,
+            id: null,
+            userId: id
+        };
+
+        PostMessageRequest(message, (savedMessage) => {
+            setItems([
+                ...items,
+                savedMessage
+            ]);
+            setText('');
+        })
     };
 
     useEffect(() => {
         if (!isAuthenticated) {
             dispatch(userLogoutAction());
             navigate(ROUTES.HOME);
+        } else {
+            GetMessagesRequest((messages) => setItems(messages || []));
         }
     }, [isAuthenticated]);
 

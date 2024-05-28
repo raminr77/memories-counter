@@ -4,6 +4,7 @@ declare global {
   interface GMessage {
     text: string;
     created: string;
-    userId: number | null;
+    id: null | string;
+    userId: string | null;
   }
 }
