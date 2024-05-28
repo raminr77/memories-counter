@@ -1,3 +1,4 @@
+import Lottie from "lottie-react";
 import { useState, FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +7,8 @@ import { animator } from "../../shared/utils/animator";
 import { ROUTES } from "../../shared/constants/routes";
 import { classnames } from "../../shared/utils/classnames";
 import { userLoginAction } from "../../shared/redux/user/user-slice";
+
+import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
 
 export function HomePage(){
   const dispatch = useDispatch();
@@ -34,7 +37,7 @@ export function HomePage(){
   return (
     <div className='flex flex-col justify-center items-center relative w-full h-screen'>
       <form className={classnames(
-        "w-11/12 flex flex-col items-center justify-center shadow-md rounded-md p-4 max-w-xs bg-slate-50 dark:bg-slate-700 gap-2",
+        "w-11/12 z-10 flex flex-col items-center justify-center shadow-md rounded-md p-4 max-w-xs bg-slate-50 dark:bg-slate-700 gap-2",
         animator({ name: 'bounceIn' })
       )}>
         <img
@@ -78,6 +81,8 @@ export function HomePage(){
           Submit
         </button>
       </form>
+
+      <Lottie className='absolute bottom-0 z-0' animationData={LOVE_ANIMATION} />
     </div>
   )
 }

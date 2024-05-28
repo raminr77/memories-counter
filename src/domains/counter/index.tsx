@@ -1,3 +1,4 @@
+import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +11,8 @@ import { userLogoutAction } from "../../shared/redux/user/user-slice";
 import { userSelectors } from "../../shared/redux/user/user-selectors";
 import { calculateTimeDifference } from "../../shared/utils/calculate-time-difference";
 
+import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
+
 export function CounterPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -18,16 +21,15 @@ export function CounterPage() {
     const { isAuthenticated } = useSelector(userSelectors.userInfo);
     const { startDate, startTime } = useSelector(appSelectors.appData);
 
-    const [items, setItems] = useState<{ text: string; created: string; }[]>([]);
+    const [items, setItems] = useState<{ text: string; isLeft: boolean; created: string; }[]>([]);
 
     const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const date = new Date();
-        const created = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()}  ${date.getHours()}:${date.getMinutes()}`;
-        const message = { text, created };
+        const created = `${date.getFullYear()} / ${date.getMonth()} / ${date.getDay()}  -  ${date.getHours()}:${date.getMinutes()}`;
         setItems([
             ...items,
-            message
+            { text, isLeft: text === 'sss', created }
         ]);
         setText('');
     };
@@ -49,25 +51,39 @@ export function CounterPage() {
     return (
         <div className="w-full min-h-screen overflow-y-auto flex flex-col items-center overflow-x-hidden">
             <header className={classnames(
-                "top-0 z-10 fixed w-full flex flex-col items-center justify-center shadow-md p-5 bg-white/20 dark:bg-black/20 backdrop-blur-sm",
+                "top-0 z-20 fixed w-full flex flex-col items-center justify-center shadow-md p-5 bg-white/20 dark:bg-black/20 backdrop-blur-sm",
                 animator({ name: 'fadeInDown' })
             )}>
                 <h1 className="tas-font text-2xl mt-4">The Memories 🩵</h1>
+                <h3 className="text-s mt-1">{`You have ${items.length} memories now.`}</h3>
                 <h3 className="text-app-color text-sm leading-8 mt-1">{time}</h3>
             </header>
 
             <section
+                dir="rtl"
                 style={{ height: 'calc(100vh - 60px)' }}
-                className="w-full flex flex-col justify-end items-end px-5 pb-4 gap-2"
+                className="w-full flex flex-col justify-end items-end px-5 pb-4 gap-2 z-10"
             >
-                {items.map(({ text, created }, index) => (
+                {items.map(({ text, created, isLeft }, index) => (
                     <div key={index} className={classnames(
-                            'relative dark:bg-slate-700 bg-slate-200 rounded-l-xl rounded-tr-xl py-2 px-3 text-sm',
-                            animator({ name: "bounceInRight" })
-                        )}
-                    >
-                        <p>{text}</p>
-                        <span className="text-xs opacity-40">{created}</span>
+                        'w-full flex items-center',
+                        {
+                            'justify-end': isLeft,
+                            'justify-start': !isLeft
+                        }
+                    )}>
+                        <div className={classnames(
+                                'relative max-w-full py-2 px-3 text-sm overflow-hidden',
+                                {
+                                    'dark:bg-slate-700 bg-slate-200 rounded-r-xl rounded-tl-xl': isLeft,
+                                    'dark:bg-slate-500 bg-slate-300 rounded-l-xl rounded-tr-xl': !isLeft
+                                },
+                                animator({ name: isLeft ? "bounceInLeft" : "bounceInRight" })
+                            )}
+                        >
+                            <p className="whitespace-pre-line text-right leading-6">{text}</p>
+                            <span dir="ltr" className="text-xs mt-1 opacity-40">{created}</span>
+                        </div>
                     </div>
                 ))}
             </section>
@@ -92,6 +108,8 @@ export function CounterPage() {
                     <img width={24} className="invert" alt="SEND" src="/images/send.png" />
                 </button>
             </form>
+
+            <Lottie className='absolute bottom-16 z-0' animationData={LOVE_ANIMATION} />
         </div>
     );
 }

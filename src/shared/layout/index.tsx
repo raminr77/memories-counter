@@ -26,7 +26,7 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
 
   return (
     <main className='h-screen select-none flex flex-col w-full overflow-hidden bg-slate-100 dark:bg-slate-800 text-black dark:text-white relative'>
-      <div className="absolute top-0 left-4 z-20 flex items-start justify-center gap-2">
+      <div className="absolute top-0 left-4 z-30 flex items-start justify-center gap-2">
           <ToggleThemeButton />
           <ExitButton />
       </div>
