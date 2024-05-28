@@ -6,6 +6,7 @@ import { notify } from "../../shared/utils/notify";
 import { animator } from "../../shared/utils/animator";
 import { ROUTES } from "../../shared/constants/routes";
 import { classnames } from "../../shared/utils/classnames";
+import { LoginRequest } from "../../shared/firebase/requests/auth";
 import { userLoginAction } from "../../shared/redux/user/user-slice";
 
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
@@ -24,17 +25,14 @@ export function HomePage(){
 
   const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (isCodeValid(code) && code === 'ramin') {
-      // TODO: Login
-      notify.success({ message: 'Welcome! 😍' });
-      dispatch(userLoginAction({
-        id: 1,
-        name: 'Ramin',
-      }));
-      navigate(ROUTES.COUNTER);
+    if (isCodeValid(code)) {
+      LoginRequest(code, (user: GUser) => {
+        dispatch(userLoginAction(user));
+        navigate(ROUTES.COUNTER);
+      });
       return;
     }
-    notify.error({ message: 'Oops, Your Code Is Wrong!' });
+    notify.error({ message: 'Oops, Your Code Pattern Is Not Correct!' });
   };
 
   return (

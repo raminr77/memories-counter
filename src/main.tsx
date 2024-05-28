@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { initFirebase } from "./shared/firebase";
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { ROUTES } from "./shared/constants/routes";
@@ -18,6 +19,8 @@ import { CounterPage } from './domains/counter';
 
 // Styles
 import './styles/main.scss';
+
+initFirebase();
 
 const router = createBrowserRouter([
   {

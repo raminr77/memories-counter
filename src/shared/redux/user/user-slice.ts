@@ -5,6 +5,10 @@ import { REDUCERS } from "../../constants/reducers";
 const initialState: GUser = {
     id: null,
     name: '',
+    code: '',
+    email: '',
+    birthday: '',
+    isMale: false,
     isAuthenticated: false
 };
 
@@ -22,6 +26,10 @@ const userSlice = createSlice({
             return {
                 id: null,
                 name: '',
+                code: '',
+                email: '',
+                birthday: '',
+                isMale: false,
                 isAuthenticated: false
             };
         }

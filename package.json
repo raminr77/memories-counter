@@ -20,6 +20,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "clsx": "^2.1.1",
+    "firebase": "^10.12.2",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.4",

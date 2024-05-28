@@ -3,7 +3,11 @@ export {};
 declare global {
   interface GUser {
     name: string;
-    id: null | number;
+    code: string;
+    email: string;
+    isMale: boolean;
+    birthday: stringl;
+    id: null | string;
     isAuthenticated: boolean;
   }
 }
