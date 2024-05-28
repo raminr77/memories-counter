@@ -27,6 +27,8 @@ export function CounterPage() {
     const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
+        if (!text.trim()) return;
+
         const AUDIO = new Audio(AUDIO_FILE);
         AUDIO.play();
         
@@ -34,10 +36,10 @@ export function CounterPage() {
         const created = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} | ${date.getHours()}:${date.getMinutes()}`;
 
         const message: GMessage = {
-            text,
             created,
             id: null,
-            userId: id
+            userId: id,
+            text: text.trim(),
         };
 
         PostMessageRequest(message, (savedMessage) => {
