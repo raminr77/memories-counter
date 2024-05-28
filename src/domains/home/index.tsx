@@ -25,9 +25,12 @@ export function HomePage(){
   const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (isCodeValid(code) && code === 'ramin') {
-      // TODO: check code with BE
+      // TODO: Login
       notify.success({ message: 'Welcome! 😍' });
-      dispatch(userLoginAction({}));
+      dispatch(userLoginAction({
+        id: 1,
+        name: 'Ramin',
+      }));
       navigate(ROUTES.COUNTER);
       return;
     }

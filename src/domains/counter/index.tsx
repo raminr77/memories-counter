@@ -17,23 +17,25 @@ export function CounterPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [text, setText] = useState<string>('');
-    const { isAuthenticated } = useSelector(userSelectors.userInfo);
+    const { id, isAuthenticated } = useSelector(userSelectors.userInfo);
 
-    const [items, setItems] = useState<{ text: string; isLeft: boolean; created: string; }[]>([]);
+    const [items, setItems] = useState<GMessage[]>([]);
+
+    // TODO: Get Messages
 
     const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        // TODO: Request
+        // TODO: Send Message
         const date = new Date();
         const created = `${date.getFullYear()} / ${date.getMonth()} / ${date.getDay()}  -  ${date.getHours()}:${date.getMinutes()}`;
         setItems([
             ...items,
-            { text, isLeft: text === 'sss', created }
+            { text, userId: id, created }
         ]);
         setText('');
     };
 
-    useEffect(() => {        
+    useEffect(() => {
         if (!isAuthenticated) {
             dispatch(userLogoutAction());
             navigate(ROUTES.HOME);

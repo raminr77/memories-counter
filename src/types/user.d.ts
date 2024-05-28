@@ -2,6 +2,8 @@ export {};
 
 declare global {
   interface GUser {
-      isAuthenticated: boolean;
+    name: string;
+    id: null | number;
+    isAuthenticated: boolean;
   }
 }

@@ -3,6 +3,8 @@ import { REDUCERS } from "../../constants/reducers";
 
 
 const initialState: GUser = {
+    id: null,
+    name: '',
     isAuthenticated: false
 };
 
@@ -18,6 +20,8 @@ const userSlice = createSlice({
         },
         userLogoutAction: () => {
             return {
+                id: null,
+                name: '',
                 isAuthenticated: false
             };
         }
