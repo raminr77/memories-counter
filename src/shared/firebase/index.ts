@@ -10,7 +10,7 @@ const AUTH = getAuth(FIREBASE_APP);
 export const initFirebase = () => {
     signInAnonymously(AUTH)
         .then(() => {
-            console.log('%cDB - SUCCESS!', 'color: green');
+            console.log('%cSUCCESS: Firebase Connected!', 'color: green');
         })
         .catch(() => {
             notify.error({ message: "Error: We couldn't connect to the Database!" });

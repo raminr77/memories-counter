@@ -16,7 +16,7 @@ export function Input({
     minLength?: number;
     maxLength?: number;
     placeholder?: string;
-    type?: 'text' | 'number';
+    type?: 'text' | 'number' | 'password';
     onChange?: (value: string, name?: string) => void
 }){
     return (

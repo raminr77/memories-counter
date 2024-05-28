@@ -71,6 +71,7 @@ export function HomePage(){
           value={code}
           minLength={5}
           maxLength={10}
+          type="password"
           placeholder="Enter Your Magic Code"
           onChange={(value) => setCode(value)}
         />
