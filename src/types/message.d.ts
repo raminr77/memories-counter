@@ -6,5 +6,6 @@ declare global {
     created: string;
     id: null | string;
     userId: string | null;
+    receiverId: string | null;
   }
 }

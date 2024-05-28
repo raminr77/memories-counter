@@ -4,12 +4,18 @@ import { DB, DATABASE_MESSAGES_TABLE_NAME } from '../constants/database';
 
 type GetMessagesRequestProps = (messages: GMessage[]) => void;
 
-export const GetMessagesRequest = (callback: GetMessagesRequestProps = () => {}) => {
+export const GetMessagesRequest = (userId: string | null, receiverId: string | null, callback: GetMessagesRequestProps = () => {}) => {
     get(child(ref(DB), `${DATABASE_MESSAGES_TABLE_NAME}/`))
         .then((snapshot) => {
             if (snapshot.exists()) {
                 console.log('>>> Messages Updated');
-                callback(Object.values(snapshot.val()) as GMessage[]);
+                const messages = Object.entries(snapshot.val()).map(([key, value]) => ({
+                    id: key,
+                    ...value || {}
+                })) as GMessage[];
+                const filteredMessages = messages.filter((item) => (item.receiverId === receiverId || item.userId === userId));
+
+                callback(filteredMessages);
             }
         })
         .catch(() => notify.error({ message: "Error: Messages couldn't be updated." }));

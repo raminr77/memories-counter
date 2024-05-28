@@ -19,7 +19,7 @@ export function CounterPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [text, setText] = useState<string>('');
-    const { id, isAuthenticated } = useSelector(userSelectors.userInfo);
+    const { id, receiverId, isAuthenticated } = useSelector(userSelectors.userInfo);
 
     const [items, setItems] = useState<GMessage[]>([]);
 
@@ -35,6 +35,7 @@ export function CounterPage() {
             created,
             id: null,
             userId: id,
+            receiverId,
             text: text.trim(),
         };
 
@@ -52,7 +53,7 @@ export function CounterPage() {
             dispatch(userLogoutAction());
             navigate(ROUTES.HOME);
         } else {
-            GetMessagesRequest((messages) => setItems(messages || []));
+            GetMessagesRequest(id, receiverId, (messages) => setItems(messages || []));
         }
     }, [isAuthenticated]);
 
@@ -63,7 +64,10 @@ export function CounterPage() {
             <section
                 dir="rtl"
                 style={{ height: 'calc(100vh - 60px)' }}
-                className="w-full flex flex-col justify-end items-end px-5 pb-4 gap-2 z-10"
+                className={classnames(
+                    "w-full flex flex-col justify-end items-end px-5 pb-4 gap-2 z-10",
+                    animator({ name: 'fadeIn', delay: '2s' })
+                )}
             >
                 {items.map((item, index) => (
                     <CounterChatItem key={index} {...item} />

@@ -8,7 +8,10 @@ const initialState: GUser = {
     code: '',
     email: '',
     birthday: '',
+    startDate: '',
+    startTime: '',
     isMale: false,
+    receiverId: null,
     isAuthenticated: false
 };
 
@@ -29,7 +32,10 @@ const userSlice = createSlice({
                 code: '',
                 email: '',
                 birthday: '',
+                startDate: '',
+                startTime: '',
                 isMale: false,
+                receiverId: null,
                 isAuthenticated: false
             };
         }
