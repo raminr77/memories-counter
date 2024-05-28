@@ -10,10 +10,11 @@ import { animator } from "../../shared/utils/animator";
 import { classnames } from "../../shared/utils/classnames";
 import { userLogoutAction } from "../../shared/redux/user/user-slice";
 import { userSelectors } from "../../shared/redux/user/user-selectors";
+import { PostMessageRequest } from "../../shared/firebase/requests/post-message";
 import { GetMessagesRequest } from "../../shared/firebase/requests/get-messages";
 
+import AUDIO_FILE from '../../shared/assets/audio.mp3';
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
-import { PostMessageRequest } from "shared/firebase/requests/post-message";
 
 export function CounterPage() {
     const dispatch = useDispatch();
@@ -25,6 +26,9 @@ export function CounterPage() {
 
     const onSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
+
+        const AUDIO = new Audio(AUDIO_FILE);
+        AUDIO.play();
         
         const date = new Date();
         const created = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} | ${date.getHours()}:${date.getMinutes()}`;
