@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { CounterFooter } from "./counter-form";
 import { CounterHeader } from "./counter-header";
 import { CounterChatItem } from "./counter-chat-item";
 
@@ -15,6 +16,8 @@ import { PostMessageRequest } from "shared/firebase/requests/post-message";
 import { GetMessagesRequest } from "shared/firebase/requests/get-messages";
 
 import LOVE_ANIMATION from 'shared/assets/love-animation.json';
+
+import styles from './counter.module.scss';
 
 export function CounterPage() {
     const dispatch = useDispatch();
@@ -59,14 +62,15 @@ export function CounterPage() {
     }, [isAuthenticated]);
 
     return (
-        <div className="w-full h-screen flex flex-col items-center">
+        <div className="relative flex justify-center">
             <CounterHeader length={items.length} />
 
             <section
                 dir="rtl"
-                style={{ height: 'calc(100vh - 60px)' }}
+                ref={(el) => el?.scrollTo(0, el.scrollHeight)}
                 className={classnames(
-                    "w-full flex flex-col justify-end items-end px-5 pb-4 gap-2 z-10",
+                    "z-20 px-4 overflow-x-hidden h-screen overflow-y-auto w-11/12 flex flex-col pb-20 pt-44 gap-2",
+                    styles['counter__hide-scrollbar'],
                     animator({ name: 'fadeIn', delay: '2s' })
                 )}
             >
@@ -75,28 +79,16 @@ export function CounterPage() {
                 ))}
             </section>
 
-            <form className={classnames(
-                "bottom-5 gap-x-2 rounded-full fixed overflow-hidden w-11/12 flex items-center justify-center shadow-lg bg-white/50 dark:bg-black/20 backdrop-blur-sm",
-                animator({ name: "fadeIn" })
-            )}>
-                <input
-                    type="text"
-                    value={text}
-                    tabIndex={1}
-                    placeholder="Send A Good Thing In Your Day..."
-                    onChange={({ target }) => setText(target.value)}
-                    className="w-full text-sm leading-10 outline-none border-none indent-4 bg-transparent"
-                />
-                <button
-                    type="submit"
-                    onClick={onSubmit}
-                    className="bg-app-gradient min-w-11 min-h-11 flex items-center justify-center rounded-full"
-                >
-                    <img width={24} className="invert" alt="SEND" src="/images/send.png" />
-                </button>
-            </form>
+            <CounterFooter text={text} onChange={setText} onSend={onSubmit} />
 
-            <Lottie className='absolute bottom-16 z-0' animationData={LOVE_ANIMATION} />
+            <div
+                style={{
+                    height: 'calc(100vh - 60%)',
+                    background: 'url("/images/city.png") no-repeat center',
+                }}
+                className="absolute bg-cover bottom-0 left-0 right-0 w-full z-10 dark:opacity-5 opacity-15"
+            />
+            <Lottie className='fixed bottom-16 z-0' animationData={LOVE_ANIMATION} />
         </div>
     );
 }

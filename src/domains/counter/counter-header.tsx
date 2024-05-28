@@ -19,7 +19,7 @@ export function CounterHeader({ length = 0 }) {
 
     return (
         <header className={classnames(
-            "top-0 z-20 fixed w-full flex flex-col items-center justify-center shadow-md p-5 bg-white/20 dark:bg-black/20 backdrop-blur-sm",
+            "top-0 z-30 fixed w-full flex flex-col items-center justify-center shadow-md p-5 bg-white/20 dark:bg-black/20 backdrop-blur-sm",
             animator({ name: 'fadeInDown' })
         )}>
             <h1 className="tas-font text-2xl mt-4">The Memories 🩵</h1>

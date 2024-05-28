@@ -21,8 +21,8 @@ export function TimeInput({
     }, [date]);
 
     return (
-        <div className="flex flex-col my-2">
-            <label className="mb-2 text-sm">{label}</label>
+        <div className="flex flex-col mt-1">
+            <label className="mb-2 text-sm tas-font">{label}</label>
             <div className="flex items-center gap-2">
                 <Input
                     min={24}

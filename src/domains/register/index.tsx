@@ -39,7 +39,7 @@ export function RegisterPage() {
     }, []);
 
     return (
-        <div className='flex flex-col justify-center items-center overflow-hidden h-screen'>
+        <div className='flex flex-col justify-center items-center py-28'>
             <img
                 width={100}
                 alt="Memories Counter"
@@ -54,7 +54,7 @@ export function RegisterPage() {
             >
                 Join To Memories Counter
             </h1>
-            <div className="w-full flex flex-col items-center justify-center shadow-md rounded-md p-4 max-w-xs bg-slate-50 dark:bg-slate-700 gap-2 h-96 overflow-y-auto">
+            <div className="w-full flex flex-col items-center justify-center shadow-md rounded-md p-4 max-w-xs bg-slate-50 dark:bg-slate-700 gap-1">
                 <Input
                     name="name"
                     placeholder="Name"
@@ -109,7 +109,7 @@ export function RegisterPage() {
             </div>
             <div className="max-w-xs w-full mt-3 flex flex-col gap-2 items-center justify-center">
                 <Button label="REGISTER" onClick={onSubmit} />
-                <a href={ROUTES.HOME} className="tas-font text-sm bg-slate-50 dark:bg-slate-700 leading-8 w-full text-center py-1 rounded-md">Home Page</a>
+                <a href={ROUTES.HOME} className="tas-font text-sm bg-slate-200 dark:bg-slate-700 leading-8 w-full text-center py-2 rounded-md">Home Page</a>
             </div>
         </div>
     );
