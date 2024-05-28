@@ -13,7 +13,6 @@ import { userSelectors } from "../../shared/redux/user/user-selectors";
 import { PostMessageRequest } from "../../shared/firebase/requests/post-message";
 import { GetMessagesRequest } from "../../shared/firebase/requests/get-messages";
 
-import AUDIO_FILE from '../../shared/assets/audio.mp3';
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
 
 export function CounterPage() {
@@ -28,9 +27,6 @@ export function CounterPage() {
         e.preventDefault();
 
         if (!text.trim()) return;
-
-        const AUDIO = new Audio(AUDIO_FILE);
-        AUDIO.play();
         
         const date = new Date();
         const created = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} | ${date.getHours()}:${date.getMinutes()}`;
