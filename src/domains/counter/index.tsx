@@ -62,7 +62,7 @@ export function CounterPage() {
 
     return (
         <div className="w-full h-screen flex flex-col items-center">
-            <CounterHeader />
+            <CounterHeader length={items.length} />
 
             <section
                 dir="rtl"
