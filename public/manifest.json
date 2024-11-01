@@ -6,7 +6,7 @@
   "short_name": "Memories Counter",
   "display": "fullScreen",
   "author": "Ramin Rezaei",
-  "theme_color": "#fd4085",
+  "theme_color": "#F1F5F9",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "description": "Memories Counter is an application that can count the good days you have experienced in life!",
