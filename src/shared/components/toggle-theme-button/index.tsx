@@ -12,8 +12,8 @@ export function ToggleThemeButton({ className }: GCommonComponentProperties) {
         const color = isDarkMode ? '#1E2A3B' : '#F1F5F9';
 
         const themeColorTag: HTMLMetaElement | null = document.querySelector('meta[name="theme-color"]');
-        const tileColorTag: HTMLMetaElement | null = document.querySelector('msapplication-TileColor');
-        const navigationColor: HTMLMetaElement | null = document.querySelector('msapplication-navbutton-color');
+        const tileColorTag: HTMLMetaElement | null = document.querySelector('meta[name="msapplication-TileColor"]');
+        const navigationColor: HTMLMetaElement | null = document.querySelector('meta[name=msapplication-navbutton-color]');
 
         if (themeColorTag && tileColorTag && navigationColor) {
             themeColorTag.content = color;
@@ -23,7 +23,7 @@ export function ToggleThemeButton({ className }: GCommonComponentProperties) {
     };
 
     const toggleTheme = () => {
-        updateBrowserColor(darkMode);
+        updateBrowserColor(!darkMode);
         dispatch(toggleDarkMode(!darkMode));
     };
 
