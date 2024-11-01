@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa-IR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Invitation Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    
+    <style>
+        *, *::before, *:active {
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            user-select: none;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", serif;
+        }
+        body {
+            gap: 20px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        main {
+            width: 90%;
+            padding: 16px;
+            font-size: 14px;
+            max-width: 670px;
+            line-height: 33px;
+            border-radius: 8px;
+            text-align: justify;
+            background-color: aliceblue;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            /* BORDER */
+            border: 4px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                repeating-linear-gradient(-45deg,red 0, red 12.5%,
+                    #00b7ff 0, #00b7ff 25%,
+                    #333 0, #333 37.5%,
+                    #00b7ff 0, #00b7ff 50%)
+                0 / 5em 5em;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .gradient {
+            background: rgb(235,235,235);
+            background: linear-gradient(350deg, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 45%, rgba(241,241,241,1) 100%);
+        }
+        .date {
+            font-style: italic;
+            font-weight: bold;
+        }
+        .note {
+            font-size: 12px;
+            color: #727272;
+            margin-top: 10px;
+            line-height: 24px;
+        }
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+                opacity: 1
+            }
+        }
+        @-webkit-keyframes fadeInUp {
+            from {
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+                opacity: 1
+            }
+        }
+        .animated {
+            animation-duration: 2s;
+            animation-fill-mode: both;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-fill-mode: both
+        }
+        .animatedFadeInUp {
+            opacity: 0
+        }
+        .fadeInUp {
+            opacity: 0;
+            animation-name: fadeInUp;
+            -webkit-animation-name: fadeInUp;
+        }
+    </style>
+</head>
+<body class="gradient">
+    <main class="animated fadeInUp">
+        با سلام و احترام
+        <br />
+        <p class="bold">سرکار خانم مهنرس مریم حاجی‌ آقائی‌ زاده</p>
+        از شما و اخلاق خوبتان دعوت میشود که در روز جمعه مورخ
+        <span class="date">۱۱ آبان ۱۴۰۳</span>
+        در مراسم تجدید دیدار و کدورت زدایی برای حفظ بنیان های رابطه عاطفی
+        به دعوت بنده حقیر در نزدیک ترین کافه به محل زندگی خود حضور داشته باشید.
+        <br />
+        مدت زمان این دیدار یک ساعت در نظر گرفته شده است و ساعت شروع آن کاملا به عهده شما خواهد بود.
+        <br />
+        <br />
+        <p>با احترام</p>
+        <p class="bold">رامین رضائی</p>
+        <p class="note">نکته: حضور شما مایه دلگرمی خواهد بود ولی قابل تاکیید هست که حضور در این مراسم کاملا اختیاری هست و هیچ گونه اجبار و فشار از سوی فرد و یا ارگان خاصی وجود ندارد.</p>
+    </main>
+
+    <script>
+        const defaults = {
+            ticks: 10,
+            gravity: 0,
+            decay: 0.94,
+            spread: 360,
+            startVelocity: 20,
+            shapes: ["heart"],
+            colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+        };
+
+        confetti({
+            ...defaults,
+            particleCount: 50,
+            scalar: 2,
+        });
+
+        confetti({
+            ...defaults,
+            particleCount: 25,
+            scalar: 3,
+        });
+
+        confetti({
+            ...defaults,
+            particleCount: 10,
+            scalar: 4,
+        });
+    </script>
+</body>
+</html>
