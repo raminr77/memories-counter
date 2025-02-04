@@ -14,7 +14,7 @@ export function CounterFooter({ text = '', onChange = () => {}, onSend = () => {
             animator({ name: "fadeIn" })
         )}>
             <textarea
-                type="text"
+                rows={1}
                 value={text}
                 tabIndex={1}
                 placeholder="Send A Good Thing In Your Day..."
