@@ -17,6 +17,7 @@ export function CounterFooter({ text = '', onChange = () => {}, onSend = () => {
                 rows={1}
                 value={text}
                 tabIndex={1}
+                style={{ fieldSizing: 'content' }}
                 placeholder="Send A Good Thing In Your Day..."
                 onChange={({ target }) => onChange(target.value)}
                 className="w-full text-sm leading-10 outline-none border-none indent-4 bg-transparent field-sizing-content"
