@@ -10,16 +10,16 @@ interface CounterFooterProps {
 export function CounterFooter({ text = '', onChange = () => {}, onSend = () => {} }: CounterFooterProps){
     return (
         <form className={classnames(
-            "z-30 bottom-5 gap-x-2 rounded-full fixed overflow-hidden w-11/12 flex items-center justify-center shadow-lg bg-white/50 dark:bg-black/20 backdrop-blur-sm",
+            "z-30 bottom-5 gap-x-2 rounded fixed overflow-hidden w-11/12 flex items-end p-3 justify-center shadow-lg bg-white/50 dark:bg-black/20 backdrop-blur-sm",
             animator({ name: "fadeIn" })
         )}>
-            <input
+            <textarea
                 type="text"
                 value={text}
                 tabIndex={1}
                 placeholder="Send A Good Thing In Your Day..."
                 onChange={({ target }) => onChange(target.value)}
-                className="w-full text-sm leading-10 outline-none border-none indent-4 bg-transparent"
+                className="w-full text-sm leading-10 outline-none border-none indent-4 bg-transparent field-sizing-content"
             />
             <button
                 type="submit"
