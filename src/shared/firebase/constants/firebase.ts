@@ -1,9 +1,10 @@
 export const FIREBASE_CONFIGS = {
-    projectId: "memories-counter",
-    messagingSenderId: "295192400416",
-    storageBucket: "memories-counter.appspot.com",
-    authDomain: "memories-counter.firebaseapp.com",
-    apiKey: "AIzaSyBdnKbIQ7a4Kv_7Nf74ZqX1VmpgJykiR80",
-    appId: "1:295192400416:web:61c08e58c814a39197a245",
-    databaseURL: "https://memories-counter-default-rtdb.europe-west1.firebasedatabase.app",
-};
+    appId: import.meta.env.VITE_FIREBASE_APP_ID ?? '',
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY ?? '',
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID ?? '',
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ?? '',
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL ?? '',
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID ?? '',
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ?? '',
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ?? ''
+} as const;

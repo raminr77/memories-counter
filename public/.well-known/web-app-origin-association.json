@@ -1,0 +1,10 @@
+{
+    "web_apps": [
+      {
+        "manifest": "https://memories-counter.ir/manifest.json",
+        "details": {
+          "paths": ["/"]
+        }
+      }
+    ]
+}
