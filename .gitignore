@@ -27,4 +27,3 @@ dist-ssr
 .env.*.local
 
 .history
-package-lock.json
